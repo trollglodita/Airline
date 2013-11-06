@@ -19,6 +19,10 @@ app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
+app.use(function (req, res, next) {
+	res.set('X-Powered-By', 'Flight Tracker');
+	next();
+});
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
