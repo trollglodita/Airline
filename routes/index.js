@@ -30,4 +30,10 @@ exports.arrived = function (req, res) {
 		flights[number].triggerArrive()
 		res.json({status: 'done'});
 	};
-}
+};
+
+exports.list = function (req, res) {
+	res.render('list', {
+		title: 'All Flights', 
+		flights: flights});
+};
