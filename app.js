@@ -34,6 +34,7 @@ if ('development' == app.get('env')) {
 app.get('/flight/:number', routes.flight);
 app.put('/flight/:number/arrived', routes.arrived);
 app.get('/list', routes.list);
+app.get('/list/json', routes.listjson);
 
 
 http.createServer(app).listen(app.get('port'), function(){

@@ -37,3 +37,14 @@ exports.list = function (req, res) {
 		title: 'All Flights', 
 		flights: flights});
 };
+
+// Valid Json format
+exports.listjson = function (req, res) {
+	var flightData = [];
+
+	for(var number in flights) {
+		flightData.push(flights[number].getInformation());
+	}
+
+	res.json(flightData);
+}
