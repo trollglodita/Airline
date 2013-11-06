@@ -1,11 +1,25 @@
 var flight = require('./flight');
 
-flight.setOrigin('LAX');
-flight.setDestination('DCA');
-flight.setNumber(462);
+var pdxlax = {
+	number: 847,
+	origin: 'PDF',
+	destination: 'LAX'
+};
 
-console.log(flight.getInfo());
+var pl = flight(pdxlax);
 
-var anotherFlight = require('./flight');
+pl.triggerDepart();
 
-console.log(anotherFlight.getInfo());
+console.log(pl.getInformation());
+
+var ausdca = {
+	number: 382,
+	origin: 'AUS',
+	destination: 'DCA'
+};
+
+var ad = flight(ausdca);
+
+console.log(ad.getInformation());
+
+console.log(pl.getInformation());
