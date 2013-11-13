@@ -39,17 +39,6 @@ module.exports = function (flights) {
 			flights: flights});
 	};
 
-	// Valid Json format
-	functions.listjson = function (req, res) {
-		var flightData = [];
-
-		for(var number in flights) {
-			flightData.push(flights[number].getInformation());
-		}
-
-		res.json(flightData);
-	}
-
 	return functions;
 }
 
