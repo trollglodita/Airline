@@ -54,6 +54,22 @@ module.exports = function (flights) {
 			flights: flights});
 	};
 
+	functions.arrivals = function (req, res) {
+		FlightSchema.find()
+		.setOptions({sort: 'actualArrive'})
+		.exec(function (err, arrivals) {
+			if (err) {
+				console.log(err);
+				res.status(500).json({status: 'failure'});
+			} else{
+				res.render('arrivals', {
+					title: 'Arrivals',
+					arrivals: arrivals
+				});
+			}
+		});
+	};
+
 	return functions;
 }
 

@@ -34,6 +34,7 @@ module.exports = function (flights) {
 	app.get('/flight/:number', routes.flight);
 	app.put('/flight/:number/arrived', routes.arrived);
 	app.get('/list', routes.list);
+	app.get('/arrivals', routes.arrivals);
 
 	return app;
 }
