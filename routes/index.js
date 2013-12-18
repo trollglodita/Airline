@@ -45,7 +45,7 @@ module.exports = function (flights) {
 			});
 
 			res.json({status: 'done'});
-		};
+		}
 	};
 
 	functions.list = function (req, res) {
@@ -61,7 +61,7 @@ module.exports = function (flights) {
 			if (err) {
 				console.log(err);
 				res.status(500).json({status: 'failure'});
-			} else{
+			} else {
 				res.render('arrivals', {
 					title: 'Arrivals',
 					arrivals: arrivals
