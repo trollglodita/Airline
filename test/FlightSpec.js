@@ -29,7 +29,7 @@ describe('flights', function () {
 		});
 	});
 
-	it('should mark a flight as arrived'),
+	it('should mark a flight as arrived',
 	function (done) {
 		supertest(app)
 		.put('/flight/12/arrived')
@@ -43,11 +43,10 @@ describe('flights', function () {
 			.expect(200)
 			.end(function (err, res) {
 				res.status.should.equal(200);
-				res.body.actualArrive
-				.shoul.not.equal(undefined);
+				res.body.actualArrive.should.not.equal(undefined);
 
 				done();
 			})
-		})
-	}
+		});
+	});
 });
