@@ -17,6 +17,8 @@ module.exports = function (flights) {
 	functions.flight = function(req, res){
 		var number = req.param('number');
 
+		req.session.lastNumber = number;
+
 		if (typeof flights[number] === 'undefined') {
 			res.status(404).json({status: 'error'});
 		} else{
@@ -64,11 +66,26 @@ module.exports = function (flights) {
 			} else {
 				res.render('arrivals', {
 					title: 'Arrivals',
-					arrivals: arrivals
+					arrivals: arrivals,
+					lastNumber: req.session.lastNumber
 				});
 			}
 		});
 	};
+
+	functions.login = function (req, res) {
+		res.render('login', {title: 'Log in'});
+	};
+
+	functions.user = function (req,res) {
+		if (req.session.passport.user === undefined) {
+			res.redirect('/login');
+		} else {
+			res.render('user', {title: 'Welcome!', 
+				user: req.user
+			}
+		)};
+	}
 
 	return functions;
 }
